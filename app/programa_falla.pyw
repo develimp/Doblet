@@ -27,7 +27,6 @@ from manage_lottery_window import ManageLotteryWindow
 from arxiu import Arxiu
 from utils import Utils
 from database import Database
-from export_sqlite_to_mariadb import ExportSqliteToMariaDb
 
 from falla import Falla
 from category import Category
@@ -193,9 +192,6 @@ class Aplicacio(tk.Frame):
 		'''
 		db = Database('sp')
 		db.close_connection()
-		# Descomentar linies de baix per a fer cópia de sqLite a mariaDb
-		#ExportSqliteToMariaDb('sp')
-		#messagebox.showinfo("Info", "Recuperació desde sqlite completada")
 	
 	
 	def modificar_categories(self):
