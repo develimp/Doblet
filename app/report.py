@@ -10,7 +10,7 @@ import pickle
 from pathlib import Path
 
 from utils import Utils
-from arxiu import Arxiu
+
 from falla import Falla
 from member import Member
 
@@ -734,128 +734,6 @@ class Report():
 			os.startfile(file)
 		elif operating_system == 'Linux':
 			subprocess.run(["xdg-open", str(file)])
-
-
-	'''def registrations_cancellations_list(self):
-		
-		Crea un .pdf amb un llistat de les altes i les baixes de la falla
-		al comparar els actuals fallers amb el resum de l'any anterior.
-		
-		file=Arxiu('exercici')
-		exercici_actual=file.llegir_exercici_actual()
-		any_anterior=exercici_actual-1
-		try:
-			fitxer=open("resum "+str(any_anterior), "rb")
-		except IOError:
-			messagebox.showerror("Informe", "No existeix l'arxiu resum de l'any anterior")
-		else:
-			llistat_fallers_anteriors=pickle.load(fitxer)
-			fitxer.close()
-			del(fitxer)
-			ids_anteriors=[]
-			ids_actuals=[]
-			for faller in llistat_fallers_anteriors:
-				ids_anteriors.append(faller[0])
-			bd=BaseDeDades('falla.db')
-			llistat_fallers_actuals=bd.llegir_fallers_per_alta(1)
-			for faller in llistat_fallers_actuals:
-				ids_actuals.append(faller.id)
-			llistat_ids_baixes=set(ids_anteriors)-set(ids_actuals)
-			llistat_ids_altes=set(ids_actuals)-set(ids_anteriors)
-			# Calculem la data actual per a utilitzar-la a l'informe.
-			utils=Utils()
-			date=utils.calculate_current_date()
-			current_date=date[0] + "-" + date[1] + "-" + date[2]
-			page=0
-			# Intentem crear la carpeta altes i baixes si no està creada.
-			try:
-				os.mkdir("altes i baixes")
-			except OSError as e:
-				if e.errno!=errno.EEXIST:
-					raise
-			file="altes i baixes"+"/"+str(current_date)
-			# Creem el full i tot el contingut.
-			w,h=A4
-			c=canvas.Canvas(file+".pdf", pagesize=landscape(A4)) # El creem en horitzontal.
-			i=0
-			c.drawString(20, w-30, "ID") # La w és el segon parámetre ja que està en horitzontal.
-			c.drawString(50, w-30, "FALLER")
-			c.drawString(250, w-30, "DNI")
-			c.drawString(325, w-30, "ADREÇA")
-			c.drawString(575, w-30, "TELÈFON")
-			c.drawString(650, w-30, "DATA NAIXEMENT")
-			c.line(0, w-35, h, w-35)
-			bd=BaseDeDades('falla.db')
-			for id in llistat_ids_baixes:
-				faller=bd.llegir_faller(id)
-				c.drawString(20, w-i-60, str(id))
-				c.drawString(50, w-i-60, faller.cognoms + ", " + faller.nom)
-				c.drawString(250, w-i-60, faller.dni)
-				c.drawString(325, w-i-60, faller.adresa)
-				c.drawString(575, w-i-60, faller.telefon)
-				c.drawString(650, w-i-60, faller.naixement)
-				i=i+20
-				if i==500: # Quan arribem a 25 fallers canviem de pàgina.
-					page=page+1
-					c.drawString(20, 20, "baixes")
-					c.drawString((h/2)-30, 20, "pàgina "+str(page))
-					c.drawString(h-80, 20, current_date)
-					c.showPage() # Mostrem la pàgina feta.
-					c.drawString(20, w-30, "ID") # Primera línea de la següent pàgina.
-					c.drawString(50, w-30, "FALLER")
-					c.drawString(250, w-30, "DNI")
-					c.drawString(325, w-30, "ADREÇA")
-					c.drawString(575, w-30, "TELÈFON")
-					c.drawString(650, w-30, "DATA NAIXEMENT")
-					c.line(0, w-35, h, w-35)
-					i=0
-			page=page+1
-			c.drawString(20, 20, "baixes")
-			c.drawString((h/2)-30, 20, "pàgina "+str(page))
-			c.drawString(h-80, 20, current_date)
-			c.showPage() # Última pàgina.
-			i=0
-			c.drawString(20, w-30, "ID") # La w és el segon parámetre ja que està en horitzontal.
-			c.drawString(50, w-30, "FALLER")
-			c.drawString(250, w-30, "DNI")
-			c.drawString(325, w-30, "ADREÇA")
-			c.drawString(575, w-30, "TELÈFON")
-			c.drawString(650, w-30, "DATA NAIXEMENT")
-			c.line(0, w-35, h, w-35)
-			for id in llistat_ids_altes:
-				faller=bd.llegir_faller(id)
-				c.drawString(20, w-i-60, str(id))
-				c.drawString(50, w-i-60, faller.cognoms + ", " + faller.nom)
-				c.drawString(250, w-i-60, faller.dni)
-				c.drawString(325, w-i-60, faller.adresa)
-				c.drawString(575, w-i-60, faller.telefon)
-				c.drawString(650, w-i-60, faller.naixement)
-				i=i+20
-				if i==500: # Quan arribem a 25 fallers canviem de pàgina.
-					page=page+1
-					c.drawString(20, 20, "altes")
-					c.drawString((h/2)-30, 20, "pàgina "+str(page))
-					c.drawString(h-80, 20, current_date)
-					c.showPage() # Mostrem la pàgina feta.
-					c.drawString(20, w-30, "ID") # Primera línea de la següent pàgina.
-					c.drawString(50, w-30, "FALLER")
-					c.drawString(250, w-30, "DNI")
-					c.drawString(325, w-30, "ADREÇA")
-					c.drawString(575, w-30, "TELÈFON")
-					c.drawString(650, w-30, "DATA NAIXEMENT")
-					c.line(0, w-35, h, w-35)
-					i=0
-			page=page+1
-			c.drawString(20, 20, "altes")
-			c.drawString((h/2)-30, 20, "pàgina "+str(page))
-			c.drawString(h-80, 20, current_date)
-			c.showPage() # Última pàgina.
-			c.save()
-			# Entrem a la carpeta "altes i baixes" per a obrir l'arxiu pdf i tornem a la ruta original.
-			path=os.getcwd()
-			os.chdir("altes i baixes")
-			os.startfile(str(current_date)+".pdf")
-			os.chdir(path)'''
 
 
 	def members_with_raffle_list(self):

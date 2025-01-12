@@ -248,7 +248,7 @@ class ModifyMemberWindow(tk.Toplevel):
 			self,
 			text = "Actualitzar dades",
 			style = "Boto.TButton",
-			command = self.actualitzar
+			command = self.update
 		)
 		self.button_update.grid(row = 3, column = 0, padx = 5, pady = 5)
 
@@ -398,7 +398,7 @@ class ModifyMemberWindow(tk.Toplevel):
 		self.family_ids = []
 	
 
-	def actualitzar(self):
+	def update(self):
 		'''
 		Es fica en marxa al fer clic en el botó "actualitzar".
 		Es lligen totes les dades presents en el formulari i
@@ -444,21 +444,7 @@ class ModifyMemberWindow(tk.Toplevel):
 				member.address = self.address.get()
 				member.phone_number = self.phone_number.get()
 				member.email = self.email.get()
-				'''if member.birthdate != birthdate:
-				#if member.birthdate != self.birthdate.get():
-					valor = messagebox.askquestion("Modificar dades","Has modificat la data de naixement del faller i s'haurà de crear un nou historial, estas segur?")
-					if valor == "yes":
-						member.birthdate = birthdate
-						#faller.naixement=self.birthdate.get()
-						exercici=faller.calcular_primer_exercici(faller.naixement)
-						historial={}
-						while exercici < exercici_actual:
-							historial[exercici]=["baixa", ""]
-							exercici=exercici+1
-						historial[exercici_actual]=["vocal", "Sants Patrons"]
-						nom_arxiu="historials"+"/"+str(faller.id)
-						arxiu=Arxiu(nom_arxiu)
-						arxiu.modificar_historial(historial)'''
+				
 				# Canvis de familia.
 				result = old_family.get_members(old_family.id)
 				for values in result:

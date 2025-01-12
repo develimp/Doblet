@@ -403,17 +403,6 @@ class InsertMemberWindow(tk.Toplevel):
 			falla = Falla()
 			falla.get_current_falla_year()
 			member.set_membership_history(member.id, "vocal", "Sants Patrons", falla.falla_year)
-			#member=bd.llegir_ultim_faller()
-			#exercici=member.calcular_primer_exercici(member.birthdate)
-			#historial={}
-			#while exercici < exercici_actual:
-			#	historial[exercici]=["baixa", ""]
-			#	exercici=exercici+1
-			#historial[exercici_actual]=["vocal", "Sants Patrons"]
-			#nom_arxiu="historials"+"/"+str(member.id)
-			#arxiu=Arxiu(nom_arxiu)
-			#arxiu.crear_historial(historial)
-			#bd.tancar_conexio()
 
 			self.name.set("")
 			self.surname.set("")
