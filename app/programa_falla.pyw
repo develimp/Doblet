@@ -19,7 +19,7 @@ from pathlib import Path
 
 from insert_member_window import InsertMemberWindow
 from manage_member_window import ManageMemberWindow
-from finestra_historial import FinestraHistorial
+from modify_record_window import ModifyRecordWindow
 from modify_categories_window import ModifyCategoriesWindow
 from show_report_window import ShowReportWindow
 from manage_lottery_window import ManageLotteryWindow
@@ -241,8 +241,7 @@ class Aplicacio(tk.Frame):
 		Crea una nova instància de la classe FinestraHistorial
 		que obri la finestra "Modificar" del menú "Historial".
 		'''
-		historial = FinestraHistorial(self)
-		historial.iniciar()
+		ModifyRecordWindow(self)
 
 
 	def borrar_historial(self):

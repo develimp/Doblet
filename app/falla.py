@@ -674,8 +674,6 @@ class Falla():
 		
 		db = Database('sp')
 		self.get_current_falla_year()
-		'''
-		
 		self.get_members("is_registered", 1)
 		for member in self.members_list:
 			assigned_fee = 0
@@ -744,7 +742,7 @@ class Falla():
 				value[0]
 			)
 		messagebox.showinfo("Exercici nou", "Deutes i sobrants de l'exercici anterior actualitzats")
-'''
+
 		# Afegim a cada faller l'historial de l'exercici nou.
 		# Per fer la part de l'historial
 

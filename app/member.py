@@ -299,7 +299,7 @@ class Member():
 
 	def modify_membership_history(self, id_member, position, falla, falla_year):
 		db = Database('sp')
-		db.update_membership_history(falla_year, position, falla, id_member)
+		db.upsert_membership_history(falla_year, position, falla, id_member)
 		db.close_connection()
 
 
