@@ -5,7 +5,6 @@ import platform
 from pathlib import Path
 
 from utils import Utils
-from arxiu import Arxiu
 
 from falla import Falla
 from lottery import Lottery

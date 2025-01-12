@@ -4,8 +4,8 @@ from tkinter import messagebox
 import platform
 from pathlib import Path
 
-from arxiu import Arxiu
 from utils import Utils
+
 from falla import Falla
 from member import Member
 

@@ -24,7 +24,6 @@ from modify_categories_window import ModifyCategoriesWindow
 from show_report_window import ShowReportWindow
 from manage_lottery_window import ManageLotteryWindow
 
-from arxiu import Arxiu
 from utils import Utils
 from database import Database
 
