@@ -58,7 +58,7 @@ class ModifyCategoriesWindow(tk.Toplevel):
 
 		# Widgets
 		self.label_adult_name = ttk.Label(
-			self, text = "Adult (major d'edat)", style = "Etiqueta.TLabel"
+			self, text = "Adult (major d'edat)", style = "Label.TLabel"
 		)
 		self.label_adult_name.grid(
 			row = 0, column = 0, padx = 5, pady = 5, sticky = "w"
@@ -80,7 +80,7 @@ class ModifyCategoriesWindow(tk.Toplevel):
 		self.label_cadet_name = ttk.Label(
 			self,
 			text = "Cadet (entre 14 i 17 anys)",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_cadet_name.grid(
 			row = 1, column = 0, padx = 5, pady = 5, sticky = "w"
@@ -102,7 +102,7 @@ class ModifyCategoriesWindow(tk.Toplevel):
 		self.label_youth_name = ttk.Label(
 			self,
 			text = "Juvenil (entre 10 i 13 anys)",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_youth_name.grid(
 			row = 2, column = 0, padx = 5, pady = 5, sticky = "w"
@@ -124,7 +124,7 @@ class ModifyCategoriesWindow(tk.Toplevel):
 		self.label_childish_name = ttk.Label(
 			self,
 			text = "Infantil (entre 5 i 9 anys)",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_childish_name.grid(
 			row = 3, column = 0, padx = 5, pady = 5, sticky = "w"
@@ -149,7 +149,7 @@ class ModifyCategoriesWindow(tk.Toplevel):
 		)
 
 		self.label_baby_name = ttk.Label(
-			self, text = "Bebe (menor de 5 anys)", style = "Etiqueta.TLabel"
+			self, text = "Bebe (menor de 5 anys)", style = "Label.TLabel"
 		)
 		self.label_baby_name.grid(
 			row = 4, column = 0, padx = 5, pady = 5, sticky = "w"
@@ -172,7 +172,7 @@ class ModifyCategoriesWindow(tk.Toplevel):
 			self,
 			width=15,
 			text="Modificar",
-			style="Boto.TButton",
+			style="Button.TButton",
 			command=self.modify_categories
 		)
 		self.button_modify.grid(row=5, column=0, columnspan=2, pady=5)

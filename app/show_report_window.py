@@ -63,11 +63,11 @@ class ShowReportWindow(tk.Toplevel):
 
 		# Frames en els que dividim la finestra.
 		label_style_day_movements = ttk.Label(
-			self, text = "Moviments dia", style = "Titol.TLabel"
+			self, text = "Moviments dia", style = "Title.TLabel"
 		)
 		label_frame_day_movements = ttk.LabelFrame(
 			self,
-			style = "Marc.TFrame",
+			style = "BorderLine.TFrame",
 			labelwidget = label_style_day_movements
 		)
 		label_frame_day_movements.grid(
@@ -75,11 +75,11 @@ class ShowReportWindow(tk.Toplevel):
 		)
 
 		label_style_accounting_reports = ttk.Label(
-			self, text = "Llistats comptables", style = "Titol.TLabel"
+			self, text = "Llistats comptables", style = "Title.TLabel"
 		)
 		label_frame_accounting_reports = ttk.LabelFrame(
 			self,
-			style = "Marc.TFrame",
+			style = "BorderLine.TFrame",
 			labelwidget = label_style_accounting_reports
 		)
 		label_frame_accounting_reports.grid(
@@ -87,21 +87,21 @@ class ShowReportWindow(tk.Toplevel):
 		)
 
 		label_style_members = ttk.Label(
-			self, text = "Llistat fallers", style = "Titol.TLabel"
+			self, text = "Llistat fallers", style = "Title.TLabel"
 		)
 		label_frame_members = ttk.LabelFrame(
-			self, style = "Marc.TFrame", labelwidget = label_style_members
+			self, style = "BorderLine.TFrame", labelwidget = label_style_members
 		)
 		label_frame_members.grid(
 			row = 2, column = 0, padx = 5, pady = 5, ipadx = 5, ipady = 5
 		)
 
 		label_style_other_reports = ttk.Label(
-			self, text = "Altres llistats", style = "Titol.TLabel"
+			self, text = "Altres llistats", style = "Title.TLabel"
 		)
 		label_frame_other_reports = ttk.LabelFrame(
 			self,
-			style = "Marc.TFrame",
+			style = "BorderLine.TFrame",
 			labelwidget = label_style_other_reports
 		)
 		label_frame_other_reports.grid(
@@ -112,7 +112,7 @@ class ShowReportWindow(tk.Toplevel):
 
 		# Frame "Moviments dia".
 		self.label_movements_date = ttk.Label(
-			label_frame_day_movements, text = "Data", style = "Etiqueta.TLabel"
+			label_frame_day_movements, text = "Data", style = "Label.TLabel"
 		)
 		self.label_movements_date.grid(row = 0, column = 0, padx = 5, pady = 5)
 
@@ -141,7 +141,7 @@ class ShowReportWindow(tk.Toplevel):
 		self.button_day_movements = ttk.Button(
 			label_frame_day_movements,
 			text="Llistat moviments",
-			style="Boto.TButton",
+			style="Button.TButton",
 			command = self.create_movements_report
 		)
 		self.button_day_movements.grid(row = 0, column = 4, padx = 5, pady = 5)
@@ -150,7 +150,7 @@ class ShowReportWindow(tk.Toplevel):
 		self.button_general = ttk.Button(
 			label_frame_accounting_reports,
 			text = "Llistat general",
-			style = "Boto.TButton",
+			style = "Button.TButton",
 			command = self.create_general_report
 		)
 		self.button_general.grid(row = 0, column = 0, padx = 5, pady = 3)
@@ -158,7 +158,7 @@ class ShowReportWindow(tk.Toplevel):
 		self.button_general_families = ttk.Button(
 			label_frame_accounting_reports,
 			text = "Llistat general per families",
-			style = "Boto.TButton",
+			style = "Button.TButton",
 			command = self.create_general_families_report
 		)
 		self.button_general_families.grid(
@@ -168,7 +168,7 @@ class ShowReportWindow(tk.Toplevel):
 		self.button_no_members = ttk.Button(
 			label_frame_accounting_reports,
 			text = "Llistat quotes no fallers",
-			style = "Boto.TButton",
+			style = "Button.TButton",
 			command = self.create_no_members_report
 		)
 		self.button_no_members.grid(row = 0, column = 2, padx = 5, pady = 3)
@@ -326,7 +326,7 @@ class ShowReportWindow(tk.Toplevel):
 		self.label_initial_age = ttk.Label(
 			label_frame_members,
 			text = "edat inicial",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_initial_age.grid(
 			row = 1, column = 2, padx = 5, sticky = "w"
@@ -345,7 +345,7 @@ class ShowReportWindow(tk.Toplevel):
 		self.label_final_age = ttk.Label(
 			label_frame_members,
 			text = "edat final",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_final_age.grid(
 			row = 3, column = 2, padx = 5, sticky ="w"
@@ -364,7 +364,7 @@ class ShowReportWindow(tk.Toplevel):
 		self.button_members = ttk.Button(
 			label_frame_members,
 			text = "Llistat fallers",
-			style = "Boto.TButton",
+			style = "Button.TButton",
 			command = self.create_members_report
 		)
 		self.button_members.grid(
@@ -375,7 +375,7 @@ class ShowReportWindow(tk.Toplevel):
 		self.button_registrations_cancellations = ttk.Button(
 			label_frame_other_reports,
 			text = "Llistat altes i baixes",
-			style = "Boto.TButton",
+			style = "Button.TButton",
 			command = self.create_registrations_cancellations_report
 		)
 		self.button_registrations_cancellations.grid(
@@ -385,7 +385,7 @@ class ShowReportWindow(tk.Toplevel):
 		self.button_raffles = ttk.Button(
 			label_frame_other_reports,
 			text = "Llistat fallers amb rifa",
-			style = "Boto.TButton",
+			style = "Button.TButton",
 			command=self.create_raffles_report
 		)
 		self.button_raffles.grid(row=0, column=1, padx=5, pady=3)

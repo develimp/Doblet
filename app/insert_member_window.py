@@ -68,20 +68,20 @@ class InsertMemberWindow(tk.Toplevel):
 		
 		# Frames en els que dividim la finestra.
 		label_style_data = ttk.Label(
-			self, text = "Introduir dades", style = "Titol.TLabel"
+			self, text = "Introduir dades", style = "Title.TLabel"
 		)
 		label_frame_data = ttk.LabelFrame(
-			self, style = "Marc.TFrame", labelwidget = label_style_data
+			self, style = "BorderLine.TFrame", labelwidget = label_style_data
 		)
 		label_frame_data.grid(
 			row = 0, column = 0, padx = 5, pady = 5, ipadx = 4, ipady = 5
 		)
 
 		label_style_family = ttk.Label(
-			self, text = "Buscar familiar del faller", style = "Titol.TLabel"
+			self, text = "Buscar familiar del faller", style = "Title.TLabel"
 		)
 		label_frame_family = ttk.LabelFrame(
-			self, style = "Marc.TFrame", labelwidget = label_style_family
+			self, style = "BorderLine.TFrame", labelwidget = label_style_family
 		)
 		label_frame_family.grid(
 			row = 1, column = 0, padx = 5, pady = 5, ipady = 5
@@ -91,7 +91,7 @@ class InsertMemberWindow(tk.Toplevel):
 
 		# Frame "Introduir dades".
 		self.label_name = ttk.Label(
-			label_frame_data, text = "Nom", style = "Etiqueta.TLabel"
+			label_frame_data, text = "Nom", style = "Label.TLabel"
 		)
 		self.label_name.grid(
 			row = 0, column = 0, padx = 7, pady = 2, sticky = "w"
@@ -101,7 +101,7 @@ class InsertMemberWindow(tk.Toplevel):
 		self.entry_name.grid(row = 1, column = 0, padx = 7)
 
 		self.label_surname = ttk.Label(
-			label_frame_data, text = "Cognoms", style = "Etiqueta.TLabel"
+			label_frame_data, text = "Cognoms", style = "Label.TLabel"
 		)
 		self.label_surname.grid(row = 0, column = 1, pady = 2, sticky = "w")
 
@@ -111,7 +111,7 @@ class InsertMemberWindow(tk.Toplevel):
 		self.entry_surname.grid(row = 1, column = 1)
 
 		self.label_gender = ttk.Label(
-			label_frame_data, text = "Sexe", style = "Etiqueta.TLabel"
+			label_frame_data, text = "Sexe", style = "Label.TLabel"
 		)
 		self.label_gender.grid(
 			row = 2, column = 0, padx = 7, pady = 5, sticky = "w"
@@ -139,7 +139,7 @@ class InsertMemberWindow(tk.Toplevel):
 		self.label_birthdate = ttk.Label(
 			label_frame_data,
 			text = "Data de naixement",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_birthdate.grid(row = 2, column = 1, pady = 5, sticky = "w")
 
@@ -149,7 +149,7 @@ class InsertMemberWindow(tk.Toplevel):
 		self.entry_birthdate.grid(row = 3, column = 1)
 
 		self.label_dni = ttk.Label(
-			label_frame_data, text = "DNI", style = "Etiqueta.TLabel"
+			label_frame_data, text = "DNI", style = "Label.TLabel"
 		)
 		self.label_dni.grid(
 			row = 4, column = 0, padx = 7, pady = 2, sticky = "w"
@@ -159,7 +159,7 @@ class InsertMemberWindow(tk.Toplevel):
 		self.entry_dni.grid(row = 5, column = 0, padx = 7)
 
 		self.label_address = ttk.Label(
-			label_frame_data, text = "Adreça", style = "Etiqueta.TLabel"
+			label_frame_data, text = "Adreça", style = "Label.TLabel"
 		)
 		self.label_address.grid(row = 4, column = 1, pady = 2, sticky = "w")
 
@@ -169,7 +169,7 @@ class InsertMemberWindow(tk.Toplevel):
 		self.entry_address.grid(row = 5, column = 1)
 
 		self.label_phone_number = ttk.Label(
-			label_frame_data, text = "Telèfon", style = "Etiqueta.TLabel"
+			label_frame_data, text = "Telèfon", style = "Label.TLabel"
 		)
 		self.label_phone_number.grid(
 			row = 6, column = 0, padx = 7, pady = 2, sticky = "w"
@@ -183,7 +183,7 @@ class InsertMemberWindow(tk.Toplevel):
 		self.label_email = ttk.Label(
 			label_frame_data,
 			text = "Correu electrònic",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_email.grid(row = 6, column = 1, pady = 2, sticky = "w")
 
@@ -196,7 +196,7 @@ class InsertMemberWindow(tk.Toplevel):
 		self.label_family_option = ttk.Label(
 			label_frame_family,
 			text = "Familiar en la falla?",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_family_option.grid(
 			row = 0, column = 0, padx = 5, pady = 2, sticky = "w"
@@ -226,7 +226,7 @@ class InsertMemberWindow(tk.Toplevel):
 		self.label_family_name = ttk.Label(
 			label_frame_family,
 			text = "Cognoms i nom",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_family_name.grid(
 			row = 2, column = 0, padx = 5, pady = 2, sticky = "w"
@@ -249,7 +249,7 @@ class InsertMemberWindow(tk.Toplevel):
 		self.button_insert = ttk.Button(
 			self,
 			text = "Introduir",
-			style = "Boto.TButton",
+			style = "Button.TButton",
 			command = self.insert_member
 		)
 		self.button_insert.grid(row = 3, column = 0, padx = 5, pady = 5)

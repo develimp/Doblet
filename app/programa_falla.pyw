@@ -111,36 +111,36 @@ class Aplicacio(tk.Frame):
 		label_frame_portada=tk.LabelFrame(self.master, borderwidth=0, background="#ffffff")
 		label_frame_portada.grid(row=0, column=0, padx=20, pady=10, ipady=2, rowspan=3)
 		
-		label_estil_inici=ttk.Label(self.master, text="Inici", style="Titol.TLabel")
-		label_frame_inici=ttk.LabelFrame(self.master, style="Marc.TFrame", labelwidget=label_estil_inici)
+		label_estil_inici=ttk.Label(self.master, text="Inici", style="Title.TLabel")
+		label_frame_inici=ttk.LabelFrame(self.master, style="BorderLine.TFrame", labelwidget=label_estil_inici)
 		label_frame_inici.grid(row=0, column=1, padx=20, pady=10, ipady=2, sticky="n")
 
-		label_estil_faller=ttk.Label(self.master, text="Faller", style="Titol.TLabel")
-		label_frame_faller=ttk.LabelFrame(self.master, style="Marc.TFrame", labelwidget=label_estil_faller)
+		label_estil_faller=ttk.Label(self.master, text="Faller", style="Title.TLabel")
+		label_frame_faller=ttk.LabelFrame(self.master, style="BorderLine.TFrame", labelwidget=label_estil_faller)
 		label_frame_faller.grid(row=1, column=1, padx=20, pady=10, ipady=2, sticky="n")
 
-		label_estil_historial=ttk.Label(self.master, text="Historial", style="Titol.TLabel")
-		label_frame_historial=ttk.LabelFrame(self.master, style="Marc.TFrame", labelwidget=label_estil_historial)
+		label_estil_historial=ttk.Label(self.master, text="Historial", style="Title.TLabel")
+		label_frame_historial=ttk.LabelFrame(self.master, style="BorderLine.TFrame", labelwidget=label_estil_historial)
 		label_frame_historial.grid(row=2, column=1, padx=20, pady=10, ipady=2, sticky="n")
 
-		label_estil_sortejos=ttk.Label(self.master, text="Sortejos", style="Titol.TLabel")
-		label_frame_sortejos=ttk.LabelFrame(self.master, style="Marc.TFrame", labelwidget=label_estil_sortejos)
+		label_estil_sortejos=ttk.Label(self.master, text="Sortejos", style="Title.TLabel")
+		label_frame_sortejos=ttk.LabelFrame(self.master, style="BorderLine.TFrame", labelwidget=label_estil_sortejos)
 		label_frame_sortejos.grid(row=0, column=2, padx=20, pady=10, ipady=2, sticky="n")
 
-		label_estil_imprimir=ttk.Label(self.master, text="Imprimir", style="Titol.TLabel")
-		label_frame_imprimir=ttk.LabelFrame(self.master, style="Marc.TFrame", labelwidget=label_estil_imprimir)
+		label_estil_imprimir=ttk.Label(self.master, text="Imprimir", style="Title.TLabel")
+		label_frame_imprimir=ttk.LabelFrame(self.master, style="BorderLine.TFrame", labelwidget=label_estil_imprimir)
 		label_frame_imprimir.grid(row=1, column=2, padx=20, pady=10, ipady=2, sticky="n")
 
 		# Widgets per a cada frame.
 
 		# Frame portada.
-		self.label_falla=ttk.Label(label_frame_portada, text="Falla", style="Portada.TLabel")
+		self.label_falla=ttk.Label(label_frame_portada, text="Falla", style="FrontPage.TLabel")
 		self.label_falla.grid(row=0, column=0, padx=2)
 
-		self.label_sants=ttk.Label(label_frame_portada, text="Sants", style="Portada.TLabel")
+		self.label_sants=ttk.Label(label_frame_portada, text="Sants", style="FrontPage.TLabel")
 		self.label_sants.grid(row=1, column=0, padx=2)
 
-		self.label_patrons=ttk.Label(label_frame_portada, text="Patrons", style="Portada.TLabel")
+		self.label_patrons=ttk.Label(label_frame_portada, text="Patrons", style="FrontPage.TLabel")
 		self.label_patrons.grid(row=2, column=0, padx=2)
 
 		logo=Image.open(base_path / 'images' / 'escut.jpg')
@@ -149,35 +149,35 @@ class Aplicacio(tk.Frame):
 		self.label_image.grid(row=3, column=0)
 
 		# Frame Inici.
-		self.button_nou_exercici=ttk.Button(label_frame_inici, width=20, text="Nou exercici", style="Boto.TButton", command=self.nou_exercici)
+		self.button_nou_exercici=ttk.Button(label_frame_inici, width=20, text="Nou exercici", style="Button.TButton", command=self.nou_exercici)
 		self.button_nou_exercici.grid(row=0, column=0, padx=5, pady=5)
 		
-		self.button_modificar_categories=ttk.Button(label_frame_inici, width=20, text="Modificar categories", style="Boto.TButton", command=self.modificar_categories)
+		self.button_modificar_categories=ttk.Button(label_frame_inici, width=20, text="Modificar categories", style="Button.TButton", command=self.modificar_categories)
 		self.button_modificar_categories.grid(row=1, column=0, padx=5, pady=5)
 
 		# Frame Faller.
-		self.button_introduir_faller=ttk.Button(label_frame_faller, width=20, text="Introduir faller", style="Boto.TButton", command=self.introduir_faller)
+		self.button_introduir_faller=ttk.Button(label_frame_faller, width=20, text="Introduir faller", style="Button.TButton", command=self.introduir_faller)
 		self.button_introduir_faller.grid(row=0, column=0, padx=5, pady=5)
 
-		self.button_gestionar_faller=ttk.Button(label_frame_faller, width=20, text="Gestionar faller", style="Boto.TButton", command=self.gestionar_faller)
+		self.button_gestionar_faller=ttk.Button(label_frame_faller, width=20, text="Gestionar faller", style="Button.TButton", command=self.gestionar_faller)
 		self.button_gestionar_faller.grid(row=1, column=0, padx=5, pady=5)
 
 		# Frame Sortejos.
-		self.button_rifa=ttk.Button(label_frame_sortejos, width=20, text="Assignar rifa", style="Boto.TButton", command=self.assignar_rifa)
+		self.button_rifa=ttk.Button(label_frame_sortejos, width=20, text="Assignar rifa", style="Button.TButton", command=self.assignar_rifa)
 		self.button_rifa.grid(row=0, column=0, padx=5, pady=5)
 
-		self.button_loteria=ttk.Button(label_frame_sortejos, width=20, text="Assignar loteria", style="Boto.TButton", command=self.assignar_loteria)
+		self.button_loteria=ttk.Button(label_frame_sortejos, width=20, text="Assignar loteria", style="Button.TButton", command=self.assignar_loteria)
 		self.button_loteria.grid(row=1, column=0, padx=5, pady=5)
 
 		# Frame Historial.
-		self.button_modificar_historial=ttk.Button(label_frame_historial, width=20, text="Modificar historial", style="Boto.TButton", command=self.modificar_historial)
+		self.button_modificar_historial=ttk.Button(label_frame_historial, width=20, text="Modificar historial", style="Button.TButton", command=self.modificar_historial)
 		self.button_modificar_historial.grid(row=0, column=0, padx=5, pady=5)
 
-		self.button_borrar_historial=ttk.Button(label_frame_historial, width=20, text="Borrar historial", style="Boto.TButton", command=self.borrar_historial)
+		self.button_borrar_historial=ttk.Button(label_frame_historial, width=20, text="Borrar historial", style="Button.TButton", command=self.borrar_historial)
 		self.button_borrar_historial.grid(row=1, column=0, padx=5, pady=5)
 
 		#Frame Imprimir.
-		self.button_llistats=ttk.Button(label_frame_imprimir, width=20, text="Llistats", style="Boto.TButton", command=self.mostrar_llistats)
+		self.button_llistats=ttk.Button(label_frame_imprimir, width=20, text="Llistats", style="Button.TButton", command=self.mostrar_llistats)
 		self.button_llistats.grid(row=0, column=0, padx=5, pady=5)
 
 		# Comprovació que s'efectua cada vegada que es fica en marxa el programa.
