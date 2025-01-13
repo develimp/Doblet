@@ -129,11 +129,11 @@ class ManageMemberWindow(tk.Toplevel):
 		label_frame_row3.pack(ipady = 5)
 
 		label_style_falla_year = ttk.Label(
-			label_frame_row1, text = "Exercici", style = "Titol.TLabel"
+			label_frame_row1, text = "Exercici", style = "Title.TLabel"
 		)
 		label_frame_falla_year = ttk.LabelFrame(
 			label_frame_row1,
-			style = "Marc.TFrame",
+			style = "BorderLine.TFrame",
 			labelwidget = label_style_falla_year
 		)
 		label_frame_falla_year.grid(
@@ -141,41 +141,41 @@ class ManageMemberWindow(tk.Toplevel):
 		)
 
 		label_style_search = ttk.Label(
-			label_frame_row1, text = "Faller", style = "Titol.TLabel"
+			label_frame_row1, text = "Faller", style = "Title.TLabel"
 		)
 		label_frame_search = ttk.LabelFrame(
 			label_frame_row1,
-			style = "Marc.TFrame",
+			style = "BorderLine.TFrame",
 			labelwidget = label_style_search
 		)
 		label_frame_search.grid(row = 0, column = 1, padx = 10)
 
 		label_style_family = ttk.Label(
-			label_frame_row1, text = "Familia", style = "Titol.TLabel"
+			label_frame_row1, text = "Familia", style = "Title.TLabel"
 		)
 		label_frame_family = ttk.LabelFrame(
 			label_frame_row1,
-			style = "Marc.TFrame",
+			style = "BorderLine.TFrame",
 			labelwidget = label_style_family
 		)
 		label_frame_family.grid(row = 0, column = 2, padx = 10, ipady = 4)
 
 		label_style_data = ttk.Label(
-			label_frame_row1, text = "Dades Personals", style = "Titol.TLabel"
+			label_frame_row1, text = "Dades Personals", style = "Title.TLabel"
 		)
 		label_frame_data = ttk.LabelFrame(
 			label_frame_row1,
-			style = "Marc.TFrame",
+			style = "BorderLine.TFrame",
 			labelwidget = label_style_data
 		)
 		label_frame_data.grid(row = 0, column = 3, padx = 10, ipady = 4)
 
 		label_style_movements = ttk.Label(
-			label_frame_row2, text = "Moviments", style = "Titol.TLabel"
+			label_frame_row2, text = "Moviments", style = "Title.TLabel"
 		)
 		label_frame_movements = ttk.LabelFrame(
 			label_frame_row2,
-			style = "Marc.TFrame",
+			style = "BorderLine.TFrame",
 			labelwidget = label_style_movements
 		)
 		label_frame_movements.grid(row = 0, column = 0, padx = 15, ipadx = 5)
@@ -183,10 +183,10 @@ class ManageMemberWindow(tk.Toplevel):
 		label_style_family_movements = ttk.Label(
 			label_frame_row2,
 			text = "Moviments de la familia",
-			style = "Titol.TLabel"
+			style = "Title.TLabel"
 		)
 		label_frame_family_movements = ttk.LabelFrame(
-			label_frame_row2, style = "Marc.TFrame",
+			label_frame_row2, style = "BorderLine.TFrame",
 			labelwidget = label_style_family_movements
 		)
 		label_frame_family_movements.grid(
@@ -194,11 +194,11 @@ class ManageMemberWindow(tk.Toplevel):
 		)
 
 		label_style_assign = ttk.Label(
-			label_frame_row3, text = "Assignar", style = "Titol.TLabel"
+			label_frame_row3, text = "Assignar", style = "Title.TLabel"
 		)
 		label_frame_assign = ttk.LabelFrame(
 			label_frame_row3,
-			style = "Marc.TFrame",
+			style = "BorderLine.TFrame",
 			labelwidget = label_style_assign
 		)
 		label_frame_assign.grid(
@@ -208,11 +208,11 @@ class ManageMemberWindow(tk.Toplevel):
 		label_style_history = ttk.Label(
 			label_frame_row3,
 			text = "Historial de moviments",
-			style = "Titol.TLabel"
+			style = "Title.TLabel"
 		)
 		label_frame_history = ttk.LabelFrame(
 			label_frame_row3,
-			style = "Marc.TFrame",
+			style = "BorderLine.TFrame",
 			labelwidget = label_style_history
 		)
 		label_frame_history.grid(row = 0, column = 1, padx = 15)
@@ -223,7 +223,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_falla_year = ttk.Entry(
 			label_frame_falla_year,
 			width = 10,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.falla_year
 		)
@@ -231,7 +231,7 @@ class ManageMemberWindow(tk.Toplevel):
 
 		# Frame "Buscar faller".
 		self.label_id = ttk.Label(
-			label_frame_search, text = "Id", style = "Etiqueta.TLabel"
+			label_frame_search, text = "Id", style = "Label.TLabel"
 		)
 		self.label_id.grid(
 			row = 0, column = 0, padx = 5, pady = 2, sticky = "w"
@@ -250,7 +250,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_name = ttk.Label(
 			label_frame_search,
 			text = "Cognoms i nom",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_name.grid(row = 0, column = 1, padx = 5, sticky = "w")
 
@@ -264,7 +264,7 @@ class ManageMemberWindow(tk.Toplevel):
 			label_frame_search,
 			state = "disabled",
 			width = 15,
-			style = "Boto.TButton",
+			style = "Button.TButton",
 			text = "Donar d'alta",
 			command = self.change_membership_status
 		)
@@ -276,7 +276,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_family = ttk.Label(
 			label_frame_family,
 			text = "Membres de la familia",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_family.grid(
 			row = 0, column = 0, padx = 5, pady = 2, sticky = "w"
@@ -291,7 +291,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_members = ttk.Label(
 			label_frame_family,
 			text = "Membres actius",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_members.grid(
 			row = 2, column = 0, padx = 5, pady = 2, sticky = "w"
@@ -300,7 +300,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_members = ttk.Entry(
 			label_frame_family,
 			width = 4,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_members
 		)
@@ -310,7 +310,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_birthdate = ttk.Label(
 			label_frame_data,
 			text = "Data de naixement",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_birthdate.grid(
 			row = 0, column = 0, padx = 5, pady = 2, sticky = "w"
@@ -318,14 +318,14 @@ class ManageMemberWindow(tk.Toplevel):
 
 		self.entry_birthdate = ttk.Entry(
 			label_frame_data,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.birthdate
 		)
 		self.entry_birthdate.grid(row = 1, column = 0, padx = 5)
 
 		self.label_dni = ttk.Label(
-			label_frame_data, text = "DNI", style = "Etiqueta.TLabel"
+			label_frame_data, text = "DNI", style = "Label.TLabel"
 		)
 		self.label_dni.grid(
 			row = 2, column = 0, padx = 5, pady = 2, sticky = "w"
@@ -333,21 +333,21 @@ class ManageMemberWindow(tk.Toplevel):
 
 		self.entry_dni = ttk.Entry(
 			label_frame_data,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.dni
 		)
 		self.entry_dni.grid(row = 3, column = 0, padx = 5)
 
 		self.label_address = ttk.Label(
-			label_frame_data, text = "Adreça", style = "Etiqueta.TLabel"
+			label_frame_data, text = "Adreça", style = "Label.TLabel"
 		)
 		self.label_address.grid(row = 0, column = 1, padx = 5, sticky = "w")
 
 		self.entry_address = ttk.Entry(
 			label_frame_data,
 			width = 30,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.address
 		)
@@ -356,14 +356,14 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_email = ttk.Label(
 			label_frame_data,
 			text = "Correu electrònic",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_email.grid(row = 2, column = 1, padx = 5, sticky = "w")
 
 		self.entry_email = ttk.Entry(
 			label_frame_data,
 			width = 30,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.email
 		)
@@ -372,7 +372,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_phone_number = ttk.Label(
 			label_frame_data,
 			text = "Telèfon",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_phone_number.grid(
 			row = 0, column = 2, padx = 5, sticky = "w"
@@ -380,7 +380,7 @@ class ManageMemberWindow(tk.Toplevel):
 
 		self.entry_phone_number = ttk.Entry(
 			label_frame_data,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.phone_number
 		)
@@ -390,7 +390,7 @@ class ManageMemberWindow(tk.Toplevel):
 			label_frame_data,
 			state = "disabled",
 			text = "Modificar dades",
-			style = "Boto.TButton",
+			style = "Button.TButton",
 			command = self.open_modify_member_window
 		)
 		self.button_modify.grid(
@@ -399,31 +399,31 @@ class ManageMemberWindow(tk.Toplevel):
 
 		#Frame "Moviments".
 		self.label_assigned = ttk.Label(
-			label_frame_movements, text = "Assignat", style = "Etiqueta.TLabel"
+			label_frame_movements, text = "Assignat", style = "Label.TLabel"
 		)
 		self.label_assigned.grid(row = 0, column = 1, pady = 2)
 
 		self.label_payed = ttk.Label(
-			label_frame_movements, text = "Pagat", style = "Etiqueta.TLabel"
+			label_frame_movements, text = "Pagat", style = "Label.TLabel"
 		)
 		self.label_payed.grid(row = 0, column = 2)
 
 		self.label_difference = ttk.Label(
 			label_frame_movements,
 			text = "Diferència",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_difference.grid(row = 0, column = 3)
 
 		self.label_fee = ttk.Label(
-			label_frame_movements, text = "Quota", style = "Etiqueta.TLabel"
+			label_frame_movements, text = "Quota", style = "Label.TLabel"
 		)
 		self.label_fee.grid(row = 1, column = 0, padx = 5, sticky = "e")
 
 		self.entry_assigned_fee = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.assigned_fee
 		)
@@ -432,7 +432,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_payed_fee = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.payed_fee
 		)
@@ -441,7 +441,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_debt_fee = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.debt_fee
 		)
@@ -466,14 +466,14 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_lottery = ttk.Label(
 			label_frame_movements,
 			text = "Loteria",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_lottery.grid(row = 2, column = 0, padx = 5, sticky = "e")
 
 		self.entry_assigned_lottery = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.assigned_lottery
 		)
@@ -482,7 +482,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_payed_lottery = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.payed_lottery
 		)
@@ -491,7 +491,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_debt_lottery = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.debt_lottery
 		)
@@ -514,14 +514,14 @@ class ManageMemberWindow(tk.Toplevel):
 		)
 
 		self.label_raffle = ttk.Label(
-			label_frame_movements, text = "Rifa", style = "Etiqueta.TLabel"
+			label_frame_movements, text = "Rifa", style = "Label.TLabel"
 		)
 		self.label_raffle.grid(row = 3, column = 0, padx = 5, sticky = "e")
 
 		self.entry_assigned_raffle = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style="Entrada.TEntry",
+			style="Entry.TEntry",
 			state = "disabled",
 			textvariable = self.assigned_raffle
 		)
@@ -530,7 +530,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_payed_raffle = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.payed_raffle
 		)
@@ -539,7 +539,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_debt_raffle = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.debt_raffle
 		)
@@ -562,14 +562,14 @@ class ManageMemberWindow(tk.Toplevel):
 		)
 
 		self.label_totals = ttk.Label(
-			label_frame_movements, text = "Totals", style = "Etiqueta.TLabel"
+			label_frame_movements, text = "Totals", style = "Label.TLabel"
 		)
 		self.label_totals.grid(row = 4, column = 0, padx = 5, sticky = "e")
 
 		self.entry_total_assigned = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.total_assigned
 		)
@@ -578,7 +578,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_total_payed = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.total_payed
 		)
@@ -587,7 +587,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_total_debt = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.total_debt
 		)
@@ -596,7 +596,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_pay_total = ttk.Entry(
 			label_frame_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.pay_total
 		)
@@ -624,7 +624,7 @@ class ManageMemberWindow(tk.Toplevel):
 			width = 8,
 			state = "disabled",
 			text = "Pagar",
-			style = "Boto.TButton",
+			style = "Button.TButton",
 			command = self.pay
 		)
 		self.button_pay.grid(row = 5, column = 4, pady = 10, sticky = "e")
@@ -633,35 +633,35 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_family_assigned = ttk.Label(
 			label_frame_family_movements,
 			text="Assignat",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_family_assigned.grid(row = 0, column = 1, pady = 2)
 
 		self.label_family_payed = ttk.Label(
 			label_frame_family_movements,
 			text = "Pagat",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_family_payed.grid(row = 0, column = 2)
 
 		self.label_family_difference = ttk.Label(
 			label_frame_family_movements,
 			text = "Diferència",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_family_difference.grid(row = 0, column = 3)
 
 		self.label_family_fee = ttk.Label(
 			label_frame_family_movements,
 			text = "Quota",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_family_fee.grid(row = 1, column = 0, padx = 5, sticky = "e")
 
 		self.entry_family_assigned_fee = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_assigned_fee
 		)
@@ -670,7 +670,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_family_payed_fee = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_payed_fee
 		)
@@ -679,7 +679,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_family_debt_fee = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_debt_fee
 		)
@@ -707,7 +707,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_family_lottery = ttk.Label(
 			label_frame_family_movements,
 			text = "Loteria",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_family_lottery.grid(
 			row = 2, column = 0, padx = 5, sticky = "e"
@@ -716,7 +716,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_family_assigned_lottery = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_assigned_lottery
 		)
@@ -725,7 +725,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_family_payed_lottery = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_payed_lottery
 		)
@@ -734,7 +734,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_family_debt_lottery = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_debt_lottery
 		)
@@ -765,7 +765,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_family_raffle = ttk.Label(
 			label_frame_family_movements,
 			text = "Rifa",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_family_raffle.grid(
 			row = 3, column = 0, padx = 5, sticky = "e"
@@ -774,7 +774,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_family_assigned_raffle = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_assigned_raffle
 		)
@@ -783,7 +783,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_family_payed_raffle = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_payed_raffle
 		)
@@ -792,7 +792,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_family_debt_raffle = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_debt_raffle
 		)
@@ -823,7 +823,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_total_family = ttk.Label(
 			label_frame_family_movements,
 			text = "Totals",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_total_family.grid(
 			row = 4, column = 0, padx = 5, sticky = "e"
@@ -832,7 +832,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_family_total_assigned = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_total_assigned
 		)
@@ -841,7 +841,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_family_total_payed = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_total_payed
 		)
@@ -850,7 +850,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_family_total_debt = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_total_debt
 		)
@@ -859,7 +859,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.entry_family_pay_total = ttk.Entry(
 			label_frame_family_movements,
 			width = 15,
-			style = "Entrada.TEntry",
+			style = "Entry.TEntry",
 			state = "disabled",
 			textvariable = self.family_pay_total
 		)
@@ -887,7 +887,7 @@ class ManageMemberWindow(tk.Toplevel):
 			width = 8,
 			state = "disabled",
 			text = "Pagar",
-			style = "Boto.TButton",
+			style = "Button.TButton",
 			command = self.family_pay
 		)
 		self.button_family_pay.grid(
@@ -898,7 +898,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_description = ttk.Label(
 			label_frame_assign,
 			text = "Descripció",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_description.grid(
 			row = 0, column = 0, padx = 5, pady = 2, sticky = "w"
@@ -914,7 +914,7 @@ class ManageMemberWindow(tk.Toplevel):
 		self.label_assign_amount = ttk.Label(
 			label_frame_assign,
 			text = "Quantitat",
-			style = "Etiqueta.TLabel"
+			style = "Label.TLabel"
 		)
 		self.label_assign_amount.grid(
 			row = 2, column = 0, padx = 5, pady = 2, sticky = "w"
@@ -976,7 +976,7 @@ class ManageMemberWindow(tk.Toplevel):
 			label_frame_assign,
 			state = "disabled",
 			text = "Assignar",
-			style = "Boto.TButton",
+			style = "Button.TButton",
 			command = self.assign
 		)
 		self.button_assign.grid(row = 3, column = 2, columnspan = 2, padx = 5)

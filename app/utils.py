@@ -15,46 +15,46 @@ class Utils():
 		'''
 		Definició dels estils per als widgets ttk de la finestra.
 		'''
-		self.estil=ttk.Style()
-		self.estil.theme_use('clam')
-		self.estil.configure(".", font=("Ubuntu", 10))
-		self.estil.configure(
-			"Marc.TFrame", background="#ffffff", relief="groove"
+		self.style = ttk.Style()
+		self.style.theme_use('clam')
+		self.style.configure(".", font = ("Ubuntu", 10))
+		self.style.configure(
+			"BorderLine.TFrame", background = "#ffffff", relief = "groove"
 		)
-		self.estil.configure(
-			"Titol.TLabel",
-			background="#ffffff",
-			foreground="#e95420",
-			font=("Ubuntu", 11)
+		self.style.configure(
+			"Title.TLabel",
+			background = "#ffffff",
+			foreground = "#e95420",
+			font = ("Ubuntu", 11)
 		)
-		self.estil.configure(
-			"Portada.TLabel",
-			background="#ffffff",
-			foreground="#e95420",
-			font=("Ubuntu", 40)
+		self.style.configure(
+			"FrontPage.TLabel",
+			background = "#ffffff",
+			foreground = "#e95420",
+			font = ("Ubuntu", 40)
 		)
-		self.estil.configure("Etiqueta.TLabel", background="#ffffff")
-		self.estil.map("Entrada.TEntry", foreground=[('disabled','black')])
-		self.estil.configure("Check.TCheckbutton", background="#ffffff")
-		self.estil.map(
-			"Check.TCheckbutton", background=[('disabled', '#eae9e7')]
+		self.style.configure("Label.TLabel", background = "#ffffff")
+		self.style.map("Entry.TEntry", foreground = [('disabled', 'black')])
+		self.style.configure("Check.TCheckbutton", background = "#ffffff")
+		self.style.map(
+			"Check.TCheckbutton", background = [('disabled', '#eae9e7')]
 		)
-		self.estil.configure("Radio.TRadiobutton", background="#ffffff")
-		self.estil.map(
+		self.style.configure("Radio.TRadiobutton", background = "#ffffff")
+		self.style.map(
 			"Radio.TRadiobutton",
-			background=[('active', '#e95420')],
-			foreground=[('active', '#ffffff')]
+			background = [('active', '#ffffff')],
+			foreground = [('active', '#000000')]
 		)
-		self.estil.configure(
-			"Boto.TButton",
-			background="#ffffff",
-			foreground="#000000",
-			font=("Ubuntu", 11)
+		self.style.configure(
+			"Button.TButton",
+			background = "#ffffff",
+			foreground = "#000000",
+			font = ("Ubuntu", 11)
 		)
-		self.estil.map(
-			"Boto.TButton",
-			background=[('active', '#e95420')],
-			foreground=[('active', '#ffffff'), ('disabled', '#aea79f')]
+		self.style.map(
+			"Button.TButton",
+			background = [('active', '#e95420')],
+			foreground = [('active', '#ffffff'), ('disabled', '#aea79f')]
 		)
 
 

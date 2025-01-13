@@ -54,32 +54,32 @@ class ModifyRecordWindow(tk.Toplevel):
 		self.member_ids = [] # Guarda els id_faller del llistat del combo.
 
 		# Frames en els que dividim la finestra.
-		label_style_search = ttk.Label(self, text = "Buscar faller", style = "Titol.TLabel")
-		label_frame_search = ttk.LabelFrame(self, style = "Marc.TFrame", labelwidget = label_style_search)
+		label_style_search = ttk.Label(self, text = "Buscar faller", style = "Title.TLabel")
+		label_frame_search = ttk.LabelFrame(self, style = "BorderLine.TFrame", labelwidget = label_style_search)
 		label_frame_search.grid(row = 0, column = 0, ipadx = 3, ipady = 5, pady = 5)
 
 		label_frame_history = tk.LabelFrame(self, borderwidth = 0, background = "#ffffff")
 		label_frame_history.grid(row = 1, column = 0, padx = 10, pady = 10)
 
-		label_style_totals = ttk.Label(self, text = "Totals", style = "Titol.TLabel")
-		label_frame_totals = ttk.LabelFrame(self, style = "Marc.TFrame", labelwidget = label_style_totals)
+		label_style_totals = ttk.Label(self, text = "Totals", style = "Title.TLabel")
+		label_frame_totals = ttk.LabelFrame(self, style = "BorderLine.TFrame", labelwidget = label_style_totals)
 		label_frame_totals.grid(row = 2, column = 0, ipady = 5, pady = 5)
 
-		label_style_modify = ttk.Label(self, text = "Modificar", style = "Titol.TLabel")
-		label_frame_modify = ttk.LabelFrame(self, style = "Marc.TFrame", labelwidget = label_style_modify)
+		label_style_modify = ttk.Label(self, text = "Modificar", style = "Title.TLabel")
+		label_frame_modify = ttk.LabelFrame(self, style = "BorderLine.TFrame", labelwidget = label_style_modify)
 		label_frame_modify.grid(row = 3, column = 0, ipadx = 3, ipady = 5, pady = 5)
 
 		# Widgets per a cada frame.
 
 		# Frame "Buscar".
-		self.label_name = ttk.Label(label_frame_search, text = "Nom", style = "Etiqueta.TLabel")
+		self.label_name = ttk.Label(label_frame_search, text = "Nom", style = "Label.TLabel")
 		self.label_name.grid(row = 0, column = 0, padx = 2)
 
 		self.combo_box_member = ttk.Combobox(label_frame_search, width = 30, postcommand = self.display_member)
 		self.combo_box_member.grid(row = 0, column = 1)
 		self.combo_box_member.bind("<<ComboboxSelected>>", self.select_member)
 
-		self.label_id = ttk.Label(label_frame_search, text = "Id", style = "Etiqueta.TLabel")
+		self.label_id = ttk.Label(label_frame_search, text = "Id", style = "Label.TLabel")
 		self.label_id.grid(row = 0, column = 2, padx = 2)
 
 		self.entry_id = ttk.Entry(label_frame_search, state = "disabled", textvariable = self.id)
@@ -106,52 +106,52 @@ class ModifyRecordWindow(tk.Toplevel):
 		self.tree_record.config(yscrollcommand = self.scroll_record.set)
 
 		# Frame "Totals".
-		self.label_childish = ttk.Label(label_frame_totals, text = "Anys d'infantil", style = "Etiqueta.TLabel")
+		self.label_childish = ttk.Label(label_frame_totals, text = "Anys d'infantil", style = "Label.TLabel")
 		self.label_childish.grid(row = 0, column = 0, padx = 5, pady = 2, sticky = "w")
 
-		self.entry_childish = ttk.Entry(label_frame_totals, style = "Entrada.TEntry", state = "disabled", textvariable = self.childish)
+		self.entry_childish = ttk.Entry(label_frame_totals, style = "Entry.TEntry", state = "disabled", textvariable = self.childish)
 		self.entry_childish.grid(row = 1, column = 0, padx = 5, sticky = "w")
 
-		self.label_score = ttk.Label(label_frame_totals, text = "Punts", style = "Etiqueta.TLabel")
+		self.label_score = ttk.Label(label_frame_totals, text = "Punts", style = "Label.TLabel")
 		self.label_score.grid(row = 0, column = 1, padx = 5, pady = 2, sticky = "w")
 
-		self.entry_score = ttk.Entry(label_frame_totals, style = "Entrada.TEntry", state = "disabled", textvariable = self.score)
+		self.entry_score = ttk.Entry(label_frame_totals, style = "Entry.TEntry", state = "disabled", textvariable = self.score)
 		self.entry_score.grid(row = 1, column = 1, padx = 5, sticky = "w")
 
-		self.label_adult = ttk.Label(label_frame_totals, text = "Anys d'adult", style = "Etiqueta.TLabel")
+		self.label_adult = ttk.Label(label_frame_totals, text = "Anys d'adult", style = "Label.TLabel")
 		self.label_adult.grid(row = 0, column = 2, padx = 5, pady = 2, sticky = "w")
 
-		self.entry_adult = ttk.Entry(label_frame_totals, style = "Entrada.TEntry", state = "disabled", textvariable = self.adult)
+		self.entry_adult = ttk.Entry(label_frame_totals, style = "Entry.TEntry", state = "disabled", textvariable = self.adult)
 		self.entry_adult.grid(row = 1, column = 2, padx = 5, sticky = "w")
 
 		# Frame "Modificar".
-		self.label_initial_year = ttk.Label(label_frame_modify, text = "Any inicial", style = "Etiqueta.TLabel")
+		self.label_initial_year = ttk.Label(label_frame_modify, text = "Any inicial", style = "Label.TLabel")
 		self.label_initial_year.grid(row = 0, column = 0, padx = 5, pady = 2, sticky = "w")
 
 		self.entry_initial_year = ttk.Entry(label_frame_modify, state = "disabled", textvariable = self.initial_year)
 		self.entry_initial_year.grid(row = 1, column = 0, padx = 5, sticky = "w")
 
-		self.label_final_year = ttk.Label(label_frame_modify, text = "Any final", style = "Etiqueta.TLabel")
+		self.label_final_year = ttk.Label(label_frame_modify, text = "Any final", style = "Label.TLabel")
 		self.label_final_year.grid(row = 2, column = 0, padx = 5, pady = 2, sticky = "w")
 
 		self.entry_final_year = ttk.Entry(label_frame_modify, state = "disabled", textvariable = self.final_year)
 		self.entry_final_year.grid(row = 3, column = 0, padx = 5, sticky = "w")
 
-		self.label_position = ttk.Label(label_frame_modify, text = "Càrrec", style = "Etiqueta.TLabel")
+		self.label_position = ttk.Label(label_frame_modify, text = "Càrrec", style = "Label.TLabel")
 		self.label_position.grid(row = 0, column = 1, padx = 5, pady = 2, sticky = "w")
 
 		self.combo_box_position = ttk.Combobox(label_frame_modify, width = 20, state = "disabled", values = ["baixa", "vocal", "fallera major infantil", "president infantil", "directiu", "cort JFL", "fallera major", "president", "fallera major Alzira", "president JLF"])
 		self.combo_box_position.current(1)
 		self.combo_box_position.grid(row = 1, column = 1, padx = 5, sticky = "w")
 
-		self.label_falla = ttk.Label(label_frame_modify, text = "Falla", style = "Etiqueta.TLabel")
+		self.label_falla = ttk.Label(label_frame_modify, text = "Falla", style = "Label.TLabel")
 		self.label_falla.grid(row = 2, column = 1, padx = 5, pady = 2, sticky = "w")
 
 		self.entry_falla = ttk.Entry(label_frame_modify, state = "disabled", textvariable = self.falla)
 		self.falla.set("Sants Patrons")
 		self.entry_falla.grid(row = 3, column = 1, padx = 5, sticky = "w")
 
-		self.button_modify = ttk.Button(label_frame_modify, state = "disabled", text = "Modificar historial", style = "Boto.TButton", command = self.modify_record)
+		self.button_modify = ttk.Button(label_frame_modify, state = "disabled", text = "Modificar historial", style = "Button.TButton", command = self.modify_record)
 		self.button_modify.grid(row = 2, column = 2, rowspan = 2, padx = 5, sticky = "s")
 
 		# Paràmetres d'inici de la finestra.
