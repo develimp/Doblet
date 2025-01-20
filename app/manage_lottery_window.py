@@ -84,31 +84,31 @@ class ManageLotteryWindow(tk.Toplevel):
 		# Widgets per a cada frame.
 
 		# Frame "Introduir".
-		self.label_lottery_id = ttk.Label(label_frame_introduce, text = "Id sorteig")
+		self.label_lottery_id = ttk.Label(label_frame_introduce, text = "Id sorteig", style = "Label.TLabel")
 		self.label_lottery_id.grid(row = 0, column = 0, padx = 2)
 
-		self.label_name = ttk.Label(label_frame_introduce, text = "Nom")
+		self.label_name = ttk.Label(label_frame_introduce, text = "Nom", style = "Label.TLabel")
 		self.label_name.grid(row = 0, column = 1, padx = 2)
 
-		self.label_member_id = ttk.Label(label_frame_introduce, text = "Id")
+		self.label_member_id = ttk.Label(label_frame_introduce, text = "Id", style = "Label.TLabel")
 		self.label_member_id.grid(row = 0, column = 2, padx = 2)
 
-		self.label_tickets_male = ttk.Label(label_frame_introduce, text = "Paperetes Masc")
+		self.label_tickets_male = ttk.Label(label_frame_introduce, text = "Paperetes Masc", style = "Label.TLabel")
 		self.label_tickets_male.grid(row = 0, column = 3, padx = 2)
 
-		self.label_tickets_female = ttk.Label(label_frame_introduce, text = "Paperetes Fem")
+		self.label_tickets_female = ttk.Label(label_frame_introduce, text = "Paperetes Fem", style = "Label.TLabel")
 		self.label_tickets_female.grid(row = 0, column = 4, padx = 2)
 
-		self.label_tickets_childish = ttk.Label(label_frame_introduce, text = "Paperetes Inf")
+		self.label_tickets_childish = ttk.Label(label_frame_introduce, text = "Paperetes Inf", style = "Label.TLabel")
 		self.label_tickets_childish.grid(row = 0, column = 5, padx = 2)
 
-		self.label_tenths_male = ttk.Label(label_frame_introduce, text = "Dècims Masc")
+		self.label_tenths_male = ttk.Label(label_frame_introduce, text = "Dècims Masc", style = "Label.TLabel")
 		self.label_tenths_male.grid(row = 0, column = 6, padx = 2)
 
-		self.label_tenths_female = ttk.Label(label_frame_introduce, text = "Dècims Fem")
+		self.label_tenths_female = ttk.Label(label_frame_introduce, text = "Dècims Fem", style = "Label.TLabel")
 		self.label_tenths_female.grid(row = 0, column = 7, padx = 2)
 
-		self.label_tenths_childish = ttk.Label(label_frame_introduce, text = "Dècims Inf")
+		self.label_tenths_childish = ttk.Label(label_frame_introduce, text = "Dècims Inf", style = "Label.TLabel")
 		self.label_tenths_childish.grid(row = 0, column = 8, padx = 2)
 
 		self.entry_lottery_id = ttk.Entry(label_frame_introduce, textvariable = self.lottery_id)
@@ -145,26 +145,26 @@ class ManageLotteryWindow(tk.Toplevel):
 		self.entry_tenths_childish.grid(row = 1, column = 8, padx = 2)
 		self.entry_tenths_childish.bind('<FocusOut>', self.calculate_totals)
 
-		self.label_price = ttk.Label(label_frame_introduce, text = "diners")
+		self.label_price = ttk.Label(label_frame_introduce, text = "Diners", style = "Label.TLabel")
 		self.label_price.grid(row = 2, column = 0, padx = 2)
 
 		self.entry_price = ttk.Entry(label_frame_introduce, state = "disabled", textvariable = self.price)
 		self.entry_price.grid(row = 2, column = 1, padx = 2)
 
-		self.label_benefit = ttk.Label(label_frame_introduce, text = "Benefici")
+		self.label_benefit = ttk.Label(label_frame_introduce, text = "Benefici", style = "Label.TLabel")
 		self.label_benefit.grid(row = 2, column = 2, padx = 2)
 
 		self.entry_benefit = ttk.Entry(label_frame_introduce, state = "disabled", textvariable = self.benefit)
 		self.entry_benefit.grid(row = 2, column = 3, padx = 2)
 
-		self.label_total = ttk.Label(label_frame_introduce, text = "Total")
+		self.label_total = ttk.Label(label_frame_introduce, text = "Total", style = "Label.TLabel")
 		self.label_total.grid(row = 2, column = 4, padx = 2)
 
 		self.entry_total = ttk.Entry(label_frame_introduce, state = "disabled", textvariable = self.total)
 		self.entry_total.grid(row = 2, column = 5, padx = 2)
 
 		self.button_add = ttk.Button(label_frame_introduce, style = "Button.TButton", text = "Afegir", command = self.add_field)
-		self.button_add.grid(row = 2, column = 6, padx = 2)
+		self.button_add.grid(row = 2, column = 6, padx = 2, pady = 4)
 
 		self.button_modify = ttk.Button(label_frame_introduce, style = "Button.TButton", state = "disabled", text = "Modificar", command = self.modify_row)
 		self.button_modify.grid(row = 2, column = 7, padx = 2)
@@ -274,19 +274,19 @@ class ManageLotteryWindow(tk.Toplevel):
 
 		# Frame "Sorteig".
 		self.combo_box_lottery_name = ttk.Combobox(label_frame_lottery_name, width = 30, postcommand = self.display_lotteries)
-		self.combo_box_lottery_name.grid(row = 0, column = 0)
+		self.combo_box_lottery_name.grid(row = 0, column = 0, padx = 5)
 
-		self.button_open=ttk.Button(label_frame_lottery_name, text="Obrir", command=self.open)
-		self.button_open.grid(row=0, column=2, padx=2)
+		self.button_open = ttk.Button(label_frame_lottery_name, style = "Button.TButton", text = "Obrir", command = self.open)
+		self.button_open.grid(row = 0, column = 2, padx = 2)
 
-		self.button_save=ttk.Button(label_frame_lottery_name, text="Guardar", command=self.save)
-		self.button_save.grid(row=0, column=3, padx=2)
+		self.button_save = ttk.Button(label_frame_lottery_name, style = "Button.TButton", text = "Guardar", command = self.save)
+		self.button_save.grid(row = 0, column = 3, padx = 2)
 
-		self.button_assign=ttk.Button(label_frame_lottery_name, text="Assignar", command=self.assign)
-		self.button_assign.grid(row=0, column=4, padx=2)
+		self.button_assign = ttk.Button(label_frame_lottery_name, style = "Button.TButton", text = "Assignar", command = self.assign)
+		self.button_assign.grid(row = 0, column = 4, padx = 2)
 
-		self.button_clean_form=ttk.Button(label_frame_lottery_name, text="Netejar", command=self.clean_form)
-		self.button_clean_form.grid(row=0, column=5, padx=2)
+		self.button_clean_form = ttk.Button(label_frame_lottery_name, style = "Button.TButton", text = "Netejar", command = self.clean_form)
+		self.button_clean_form.grid(row = 0, column = 5, padx = 2)
 
 		self.grab_set()
 		self.transient(self.master)
