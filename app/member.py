@@ -206,7 +206,7 @@ class Member():
 
 
 	@classmethod
-	def get_last_member():
+	def get_last_member(cls):
 		db = Database('sp')
 		member = db.select_last_member()
 		db.close_connection()
