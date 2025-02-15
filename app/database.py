@@ -1458,6 +1458,7 @@ class Database:
 				"Error al actualitzar les dades del historial del faller a la base de dades"
 			)
 
+	
 	def upsert_membership_history(self, falla_year, position, falla, id_member):
 		query = "CALL upsertMembershipHistory(%s, %s, %s, %s)"
 		data = (id_member, falla_year, falla, position)
@@ -1466,3 +1467,17 @@ class Database:
 			self.mysqlConnection.commit()
 		except mysql.connector.Error as e:
 			print("Error:", e)
+
+
+	# Mètodes per a operacions CRUD en la taula membershipHistory.
+	def select_balance(self, id_member):
+		query = "SELECT feeAssigned, feePayed, lotteryAssigned, lotteryPayed, raffleAssigned, rafflePayed FROM balance WHERE memberFk = %s"
+		try:
+			self.mysqlCursor.execute(query, (id_member,))
+			balance = self.mysqlCursor.fetchone()
+			return balance
+		except mysql.connector.Error:
+			messagebox.showerror(
+				"Error",
+				"Error al llegir el balanç del faller de la base de dades"
+			)

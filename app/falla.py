@@ -662,6 +662,12 @@ class Falla():
 		lotteries_list = db.select_lotteries_list()
 		return lotteries_list
 	
+
+	def get_balance(self, id_member):
+		db = Database('sp')
+		balance = db.select_balance(id_member)
+		return balance
+	
 	
 	def new_falla_year(self):
 		'''

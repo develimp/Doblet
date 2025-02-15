@@ -326,27 +326,13 @@ class Report():
 			payed_raffle = 0
 			c.drawString(20, w - i - 60, str(member.id))
 			c.drawString(50, w - i - 60, member.surname + ", " + member.name)
-			assigned_fee = assigned_fee + falla.calculate_assigned_fee(
-				member.id, falla.falla_year
-			)
-			payed_fee = payed_fee + falla.calculate_payed_fee(
-				member.id, falla.falla_year
-			)
-			assigned_lottery = assigned_lottery + \
-				falla.calculate_assigned_lottery(
-					member.id, falla.falla_year
-				)
-			payed_lottery = payed_lottery + \
-				falla.calculate_payed_lottery(
-					member.id, falla.falla_year
-				)
-			assigned_raffle = assigned_raffle + \
-				falla.calculate_assigned_raffle(
-					member.id, falla.falla_year
-				)
-			payed_raffle = payed_raffle + falla.calculate_payed_raffle(
-				member.id, falla.falla_year
-			)
+			balance = falla.get_balance(member.id)
+			assigned_fee = assigned_fee + balance[0]
+			payed_fee = payed_fee + balance[1]
+			assigned_lottery = assigned_lottery + balance[2]
+			payed_lottery = payed_lottery + balance[3]
+			assigned_raffle = assigned_raffle + balance[4]
+			payed_raffle = payed_raffle + balance[5]
 			total_assigned = assigned_fee + assigned_lottery + assigned_raffle
 			total_payed = payed_fee + payed_lottery + payed_raffle
 			c.drawRightString(
