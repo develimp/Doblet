@@ -1335,13 +1335,31 @@ class ManageMemberWindow(tk.Toplevel):
 			self.entry_total_assignment.config(state = "normal")
 			self.button_assign.config(state = "normal")
 
-		balance = falla.get_balance(member.id)
-		assigned_fee = balance[0]
-		payed_fee = balance[1]
-		assigned_lottery = balance[2]
-		payed_lottery = balance[3]
-		assigned_raffle = balance[4]
-		payed_raffle = balance[5]
+		if member.is_registered == 1:
+			balance = falla.get_balance(member.id)
+			assigned_fee = balance[0]
+			payed_fee = balance[1]
+			assigned_lottery = balance[2]
+			payed_lottery = balance[3]
+			assigned_raffle = balance[4]
+			payed_raffle = balance[5]
+		else:
+			assigned_fee = falla.calculate_assigned_fee(
+				member.id,falla.falla_year
+			)
+			payed_fee = falla.calculate_payed_fee(member.id, falla.falla_year)
+			assigned_lottery = falla.calculate_assigned_lottery(
+				member.id, falla.falla_year
+			)
+			payed_lottery = falla.calculate_payed_lottery(
+				member.id, falla.falla_year
+			)
+			assigned_raffle = falla.calculate_assigned_raffle(
+				member.id, falla.falla_year
+			)
+			payed_raffle = falla.calculate_payed_raffle(
+				member.id, falla.falla_year
+			)
 
 		self.assigned_fee.set("{0:.2f}".format(assigned_fee) + " €")
 		self.payed_fee.set("{0:.2f}".format(payed_fee) + " €")
@@ -1413,21 +1431,24 @@ class ManageMemberWindow(tk.Toplevel):
 		family_payed_lottery = 0
 		family_assigned_raffle = 0
 		family_payed_raffle = 0
+		
 		for family_member in family.members_list:
-			balance = falla.get_balance(family_member.id)
-			assigned_fee = balance[0]
-			payed_fee = balance[1]
-			assigned_lottery = balance[2]
-			payed_lottery = balance[3]
-			assigned_raffle = balance[4]
-			payed_raffle = balance[5]
 			if family_member.is_registered == 1:
+				balance = falla.get_balance(family_member.id)
+				assigned_fee = balance[0]
+				payed_fee = balance[1]
+				assigned_lottery = balance[2]
+				payed_lottery = balance[3]
+				assigned_raffle = balance[4]
+				payed_raffle = balance[5]
+
 				family_assigned_fee = family_assigned_fee + assigned_fee
 				family_payed_fee = family_payed_fee + payed_fee
 				family_assigned_lottery = family_assigned_lottery + assigned_lottery
 				family_payed_lottery = family_payed_lottery + payed_lottery
 				family_assigned_raffle = family_assigned_raffle + assigned_raffle
 				family_payed_raffle = family_payed_raffle + payed_raffle
+
 		self.family_assigned_fee.set(
 			"{0:.2f}".format(family_assigned_fee) + " €"
 		)
