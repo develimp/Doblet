@@ -4,8 +4,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp`.`getCurrentFallaYear`(INOUT vFa
 BEGIN
 	DECLARE vLastFallaYear INT;
 
-	SELECT fallaYearFk INTO vLastFallaYear
-	FROM movement ORDER BY id DESC LIMIT 1;
+	SELECT code INTO vLastFallaYear
+	FROM fallaYear ORDER BY code DESC LIMIT 1;
 
 	IF vFallaYear IS NULL THEN
 		SET vFallaYear = vLastFallaYear;
