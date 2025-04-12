@@ -28,6 +28,7 @@ class CreateDatabase:
 		self.create_procedure_trigger(base_path.parent / 'db' / 'procedures' / 'getCurrentFallaYear.sql')
 		self.create_procedure_trigger(base_path.parent / 'db' / 'procedures' / 'modifyMembershipHistory.sql')
 		self.create_procedure_trigger(base_path.parent / 'db' / 'procedures' / 'upsertMembershipHistory.sql')
+		self.create_procedure_trigger(base_path.parent / 'db' / 'procedures' / 'insertBalance.sql')
 
 		self.create_procedure_trigger(base_path.parent / 'db' / 'triggers' / 'fallaYear_beforeInsert.sql')
 		self.create_procedure_trigger(base_path.parent / 'db' / 'triggers' / 'fallaYear_beforeUpdate.sql')
@@ -36,6 +37,8 @@ class CreateDatabase:
 		self.create_procedure_trigger(base_path.parent / 'db' / 'triggers' / 'movement_beforeInsert.sql')
 		self.create_procedure_trigger(base_path.parent / 'db' / 'triggers' / 'summaryMembersFallaYear_beforeInsert.sql')
 		self.create_procedure_trigger(base_path.parent / 'db' / 'triggers' / 'movement_afterInsert.sql')
+		self.create_procedure_trigger(base_path.parent / 'db' / 'triggers' / 'member_afterInsert.sql')
+		self.create_procedure_trigger(base_path.parent / 'db' / 'triggers' / 'member_afterUpdate.sql')
 
 
 	def close_connection(self):
