@@ -629,4 +629,6 @@ class ModifyMemberWindow(tk.Toplevel):
 					old_family.modify_family(
 						old_family.id, old_family.discount, old_family.is_direct_debited
 					)
-				self.destroy()
+		falla = Falla()
+		falla.regenerateBalance()
+		self.destroy()

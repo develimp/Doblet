@@ -403,6 +403,7 @@ class InsertMemberWindow(tk.Toplevel):
 			falla = Falla()
 			falla.get_current_falla_year()
 			member.set_membership_history(member.id, "vocal", "Sants Patrons", falla.falla_year)
+			falla.regenerateBalance()
 
 			self.name.set("")
 			self.surname.set("")
