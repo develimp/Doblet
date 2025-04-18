@@ -660,14 +660,23 @@ class Falla():
 	def get_lotteries_list(self):
 		db = Database('sp')
 		lotteries_list = db.select_lotteries_list()
+		db.close_connection()
 		return lotteries_list
 	
 
 	def get_balance(self, id_member):
 		db = Database('sp')
 		balance = db.select_balance(id_member)
+		db.close_connection()
 		return balance
 	
+
+	def regenerateBalance(self):
+		db = Database('sp')
+		db.regenerateBalance()
+		db.close_connection()
+
+		
 	
 	def new_falla_year(self):
 		'''
@@ -757,6 +766,10 @@ class Falla():
 			db.insert_membership_history(self.falla_year, "vocal", "Sants Patrons", member.id)
 		
 		messagebox.showinfo("Exercici nou", "Historial faller actualitzat com a vocals. La resta de punts s'han d'assignar manualment")
+
+		db.regenerateBalance()
+		messagebox.showinfo("Exercici nou", "Balanç regenerat correctament")
+
 		messagebox.showinfo("Exercici nou", "El canvi d'exercici s'ha realitzat correctament")
 		
 		db.close_connection()
