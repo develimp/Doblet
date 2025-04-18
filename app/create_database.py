@@ -29,6 +29,7 @@ class CreateDatabase:
 		self.create_procedure_trigger(base_path.parent / 'db' / 'procedures' / 'modifyMembershipHistory.sql')
 		self.create_procedure_trigger(base_path.parent / 'db' / 'procedures' / 'upsertMembershipHistory.sql')
 		self.create_procedure_trigger(base_path.parent / 'db' / 'procedures' / 'insertBalance.sql')
+		self.create_procedure_trigger(base_path.parent / 'db' / 'procedures' / 'regenerateBalance.sql')
 
 		self.create_procedure_trigger(base_path.parent / 'db' / 'triggers' / 'fallaYear_beforeInsert.sql')
 		self.create_procedure_trigger(base_path.parent / 'db' / 'triggers' / 'fallaYear_beforeUpdate.sql')

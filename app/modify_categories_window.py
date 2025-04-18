@@ -266,6 +266,7 @@ class ModifyCategoriesWindow(tk.Toplevel):
 			category.modify_category(
 				category.id, category.fee, category.name, category.description
 			)
+		falla.regenerateBalance()
 		messagebox.showinfo(
 			"Modificar categories",
 			"Les categories s'han modificat correctament"
