@@ -1469,7 +1469,7 @@ class Database:
 			print("Error:", e)
 
 
-	# Mètodes per a operacions CRUD en la taula membershipHistory.
+	# Mètodes per a operacions CRUD en la taula balance.
 	def select_balance(self, id_member):
 		query = "SELECT feeAssigned, feePayed, lotteryAssigned, lotteryPayed, raffleAssigned, rafflePayed FROM balance WHERE memberFk = %s"
 		try:
@@ -1481,3 +1481,12 @@ class Database:
 				"Error",
 				"Error al llegir el balanç del faller de la base de dades"
 			)
+
+
+	def regenerateBalance(self):
+		query = "CALL regenerateBalance()"
+		try:
+			self.mysqlCursor.execute(query)
+			self.mysqlConnection.commit()
+		except mysql.connector.Error as e:
+			print("Error:", e)

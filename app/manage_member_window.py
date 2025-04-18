@@ -1138,6 +1138,7 @@ class ManageMemberWindow(tk.Toplevel):
 		family.modify_family(
 			family.id, family.discount, family.is_direct_debited
 		)
+		falla.regenerateBalance()
 		self.entry_id.focus()
 		self.search_by_id('<Return>')
 
