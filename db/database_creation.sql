@@ -42,7 +42,10 @@ CREATE TABLE IF NOT EXISTS member(
 CREATE TABLE IF NOT EXISTS fallaYear(
 	code INT PRIMARY KEY,
 	created DATE,
-	finished DATE
+	finished DATE,
+	finalCash DECIMAL(10, 2) DEFAULT NULL,
+	finalBank DECIMAL(10, 2) DEFAULT NULL,
+	finalStock DECIMAL(10, 2) DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS movement(
@@ -200,7 +203,8 @@ CREATE TABLE IF NOT EXISTS supplier(
 	nif VARCHAR(10),
 	address VARCHAR(100),
 	phoneNumber VARCHAR(15),
-	email VARCHAR(50)
+	email VARCHAR(50),
+	description VARCHAR(100)
 );
 
 CREATE TABLE IF NOT EXISTS supplierAccount(
@@ -240,8 +244,10 @@ CREATE TABLE IF NOT EXISTS buy(
 	payMethod ENUM('efectiu', 'banc') NOT NULL,
 	ticketReference VARCHAR(30),
 	buyed DATE DEFAULT CURRENT_DATE,
-	supplierAccountFk INT NOT NULL,
 	digitizedDocument VARCHAR(30),
+	created DATE DEFAULT NULL,
+	description VARCHAR(100),
+	fallaYearFk INT NOT NULL,
 	CONSTRAINT buy_subItem_FK
 	FOREIGN KEY(subItemFk)
 	REFERENCES subItem(id)
@@ -250,6 +256,11 @@ CREATE TABLE IF NOT EXISTS buy(
 	CONSTRAINT buy_supplier_FK
 	FOREIGN KEY(supplierFk)
 	REFERENCES supplier(id)
+	ON DELETE RESTRICT
+	ON UPDATE CASCADE,
+	CONSTRAINT buy_fallaYear_FK
+	FOREIGN KEY(fallaYearFk)
+	REFERENCES fallaYear(code)
 	ON DELETE RESTRICT
 	ON UPDATE CASCADE
 );
@@ -264,4 +275,52 @@ CREATE TABLE IF NOT EXISTS memberStatusLog(
 	REFERENCES member(id)
 	ON DELETE RESTRICT
 	ON UPDATE CASCADE
+);
+
+
+CREATE TABLE IF NOT EXISTS client(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	nif VARCHAR(10),
+	address VARCHAR(100),
+	phoneNumber VARCHAR(15),
+	email VARCHAR(50),
+	description VARCHAR(100)
+);
+
+
+CREATE TABLE IF NOT EXISTS sale(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	subItemFk INT NOT NULL,
+	clientFk INT NOT NULL,
+	amount DECIMAL(10, 2) NOT NULL,
+	payMethod ENUM('efectiu', 'banc') NOT NULL,
+	ticketReference VARCHAR(30),
+	sold DATE DEFAULT CURRENT_DATE,
+	digitizedDocument VARCHAR(30),
+	created DATE DEFAULT NULL,
+	description VARCHAR(100),
+	fallaYearFk INT NOT NULL,
+	CONSTRAINT sale_subItem_FK
+	FOREIGN KEY(subItemFk)
+	REFERENCES subItem(id)
+	ON DELETE RESTRICT
+	ON UPDATE CASCADE,
+	CONSTRAINT sale_client_FK
+	FOREIGN KEY(clientFk)
+	REFERENCES client(id)
+	ON DELETE RESTRICT
+	ON UPDATE CASCADE,
+	CONSTRAINT sale_fallaYear_FK
+	FOREIGN KEY(fallaYearFk)
+	REFERENCES fallaYear(code)
+	ON DELETE RESTRICT
+	ON UPDATE CASCADE
+);
+
+
+CREATE TABLE IF NOT EXISTS `user`(
+	id int(11) NOT NULL PRIMARY KEY,
+	nickname varchar(50) NOT NULL,
+	grafanaId int(11) NULL,
 );
