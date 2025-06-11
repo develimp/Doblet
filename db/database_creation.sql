@@ -324,3 +324,24 @@ CREATE TABLE IF NOT EXISTS `user`(
 	nickname varchar(50) NOT NULL,
 	grafanaId int(11) NULL,
 );
+
+
+CREATE TABLE IF NOT EXISTS cashClosure (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+	openingBalance DECIMAL(10,2) NOT NULL,
+	memberMovements DECIMAL(10,2) NOT NULL,
+	saleMovements DECIMAL(10,2) NOT NULL,
+	buyMovements DECIMAL(10,2) NOT NULL,
+	expectedTotal DECIMAL(10,2) NOT NULL,
+    totalCounted DECIMAL(10,2) NOT NULL,
+    coinsLeft DECIMAL(10,2) NOT NULL,
+    billsRemoved DECIMAL(10,2) NOT NULL,
+    mismatch DECIMAL(10,2) GENERATED ALWAYS AS (totalCounted - expectedTotal) STORED,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	fallaYearFk INT NOT NULL,
+	CONSTRAINT cashClosure_fallaYear_FK
+	FOREIGN KEY(fallaYearFk)
+	REFERENCES fallaYear(code)
+	ON DELETE RESTRICT
+	ON UPDATE CASCADE
+);
