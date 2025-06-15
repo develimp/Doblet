@@ -1059,7 +1059,7 @@ class ManageMemberWindow(tk.Toplevel):
 		falla = Falla()
 		falla.get_current_falla_year()
 		result = Member.get_member(self.id.get())
-		family = Family(result[12], result[13], result[14])
+		family = Family(result[13], result[14])
 		category = Category(result[15], result[16], result[17], result[18])
 		member = Member(
 			result[0],
@@ -1136,7 +1136,7 @@ class ManageMemberWindow(tk.Toplevel):
 			family.members_list.append(family_member)
 		family.calculate_discount(family.members_list)
 		family.modify_family(
-			family.id, family.discount, family.is_direct_debited
+			family.id, family.discount
 		)
 		falla.regenerateBalance()
 		self.entry_id.focus()
@@ -1221,7 +1221,7 @@ class ManageMemberWindow(tk.Toplevel):
 		Ompli el combobox amb tots els familiars del faller.
 		'''
 		result = Member.get_member(self.id.get())
-		family = Family(result[12], result[13], result[14])
+		family = Family(result[13], result[14])
 		result = family.get_members(family.id)
 		for values in result:
 			family_member = Member(
@@ -1274,7 +1274,7 @@ class ManageMemberWindow(tk.Toplevel):
 		falla = Falla()
 		falla.get_current_falla_year()
 		result = Member.get_member(id)
-		family = Family(result[12], result[13], result[14])
+		family = Family(result[13], result[14])
 		category = Category(result[15], result[16], result[17], result[18])
 		member = Member(
 			result[0],
@@ -1948,7 +1948,7 @@ class ManageMemberWindow(tk.Toplevel):
 				)
 			else:
 				result = Member.get_member(self.id.get())
-				family = Family(result[12], result[13], result[14])
+				family = Family(result[13], result[14])
 				member = Member(
 					result[0],
 					result[1],

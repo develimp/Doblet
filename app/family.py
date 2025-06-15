@@ -15,14 +15,10 @@ class Family():
 		El identificador a la taula "family" de la base de dades.
 	discount : float
 		Tant per cent de descompte que correspon a la familia.
-	is_direct_debited : bool
-		Marca si la familia te la quota domiciliada.
 
 	Mètodes:
 	--------
 	@classmethod get_family(id): list
-	@classmethod set_family(discount, is_direct_debited)
-	modify_family(id, discount, is_direct_debited)
 	delete_family(id)
 	get_members(id): list
 	calculate_discount(members_list)
@@ -30,7 +26,7 @@ class Family():
 	'''
 
 
-	def __init__(self, id: int, discount: float, is_direct_debited: bool):
+	def __init__(self, id: int, discount: float):
 		'''
 		Inicialitza una nova instància de la classe Family.
 
@@ -40,12 +36,9 @@ class Family():
 			El identificador a la taula "family" de la base de dades.
 		discount : float
 			Tant per cent de descompte que correspon a la familia.
-		is_direct_debited : bool
-			Marca si la familia te la quota domiciliada.
 		'''
 		self.id = id
 		self.discount = discount
-		self.is_direct_debited = is_direct_debited
 		self.members_list = []
 
 
@@ -75,7 +68,7 @@ class Family():
 	
 
 	@classmethod
-	def set_family(cls, discount, is_direct_debited):
+	def set_family(cls, discount):
 		'''
 		Inserta a la taula family una nova familia amb els paràmetres passats.
 
@@ -83,15 +76,13 @@ class Family():
 		-----------
 		discount : float
 			Tant per cent de descompte que correspon a la familia.
-		is_direct_debited : bool
-			Marca si la familia te la quota domiciliada.
 		'''
 		db = Database('sp')
-		db.insert_family(discount, is_direct_debited)
+		db.insert_family(discount)
 		db.close_connection()
 
 
-	def modify_family(self, id, discount, is_direct_debited):
+	def modify_family(self, id, discount):
 		'''
 		Modifica les dades de la familia.
 
@@ -101,11 +92,9 @@ class Family():
 			El identificador a la taula "family" de la base de dades.
 		discount : float
 			Tant per cent de descompte que correspon a la familia.
-		is_direct_debited : bool
-			Marca si la familia te la quota domiciliada.
 		'''
 		db = Database('sp')
-		db.update_family(id, discount, is_direct_debited)
+		db.update_family(id, discount)
 		db.close_connection()
 
 

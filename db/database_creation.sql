@@ -10,8 +10,7 @@ CREATE TABLE IF NOT EXISTS category(
 
 CREATE TABLE IF NOT EXISTS family(
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	discount DECIMAL(10, 2) NOT NULL,
-	isDirectDebited BOOLEAN
+	discount DECIMAL(10, 2) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS member(
@@ -27,6 +26,7 @@ CREATE TABLE IF NOT EXISTS member(
 	familyFk INT NOT NULL,
 	categoryFk INT NOT NULL,
 	email VARCHAR(50),
+	directDebitFk INT DEFAULT NULL,
 	CONSTRAINT member_family_FK
 	FOREIGN KEY(familyFk)
 	REFERENCES family(id)
@@ -36,6 +36,11 @@ CREATE TABLE IF NOT EXISTS member(
 	FOREIGN KEY(categoryFk)
 	REFERENCES category(id)
 	ON DELETE RESTRICT
+	ON UPDATE CASCADE,
+	CONSTRAINT member_directDebit_FK
+	FOREIGN KEY(directDebitFk)
+	REFERENCES directDebit(id)
+	ON DELETE SET NULL
 	ON UPDATE CASCADE
 );
 
@@ -320,13 +325,13 @@ CREATE TABLE IF NOT EXISTS sale(
 
 
 CREATE TABLE IF NOT EXISTS `user`(
-	id int(11) NOT NULL PRIMARY KEY,
-	nickname varchar(50) NOT NULL,
-	grafanaId int(11) NULL,
+	id INT NOT NULL PRIMARY KEY,
+	nickname VARCHAR(50) NOT NULL,
+	grafanaId INT NULL,
 );
 
 
-CREATE TABLE IF NOT EXISTS cashClosure (
+CREATE TABLE IF NOT EXISTS cashClosure(
     id INT AUTO_INCREMENT PRIMARY KEY,
 	openingBalance DECIMAL(10,2) NOT NULL,
 	memberMovements DECIMAL(10,2) NOT NULL,
@@ -342,6 +347,21 @@ CREATE TABLE IF NOT EXISTS cashClosure (
 	CONSTRAINT cashClosure_fallaYear_FK
 	FOREIGN KEY(fallaYearFk)
 	REFERENCES fallaYear(code)
+	ON DELETE RESTRICT
+	ON UPDATE CASCADE
+);
+
+
+CREATE TABLE IF NOT EXISTS directDebit(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	memberFk INT NOT NULL,
+	accountNumber VARCHAR(24) NOT NULL,
+	calculatedAmount DECIMAL(10, 2) NOT NULL,
+	actualAmount DECIMAL(10, 2) NOT NULL,
+	notes VARCHAR(100) DEFAULT NULL,
+	CONSTRAINT directDebit_member_FK
+	FOREIGN KEY(memberFk)
+	REFERENCES member(id)
 	ON DELETE RESTRICT
 	ON UPDATE CASCADE
 );

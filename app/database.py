@@ -542,7 +542,7 @@ class Database:
 
 
 	# Mètodes per a operacions CRUD en la taula family.
-	def insert_family(self, discount, is_direct_debited):
+	def insert_family(self, discount):
 		'''
 		Escriu a la base de dades les dades de la familia que se li passa
 		com a paràmetre a la taula "family".
@@ -551,14 +551,11 @@ class Database:
 		-----------
 		discount : float
 			Descompte familiar.
-		is_direct_debited : boolean
-			Si està domiciliat o no.
 		'''
-		query = "INSERT INTO family (discount, isDirectDebited) \
-			VALUES (%s, %s)"
-		data = discount, is_direct_debited
+		query = "INSERT INTO family (discount) \
+			VALUES (%s)"
 		try:
-			self.mysqlCursor.execute(query, data)
+			self.mysqlCursor.execute(query, discount)
 			self.mysqlConnection.commit()
 		except mysql.connector.Error:
 			messagebox.showerror(
@@ -663,7 +660,7 @@ class Database:
 			)
 
 
-	def update_family(self, id, discount, is_direct_debited):
+	def update_family(self, id, discount):
 		'''
 		Actualitza la taula "family" amb les dades
 		de la familia que se li passa per paràmetre.
@@ -674,12 +671,10 @@ class Database:
 			Identificador de la familia.
 		discount : float
 			Descompte familiar.
-		is_direct_debited : boolean
-			Si està domiciliat o no.
 		'''
-		query = "UPDATE family SET discount = %s, isDirectDebited = %s \
+		query = "UPDATE family SET discount = %s \
 			WHERE id = %s"
-		data = discount, is_direct_debited, id
+		data = discount, id
 		try:
 			self.mysqlCursor.execute(query, data)
 			self.mysqlConnection.commit()

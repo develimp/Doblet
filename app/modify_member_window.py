@@ -264,7 +264,7 @@ class ModifyMemberWindow(tk.Toplevel):
 		'''
 		self.id = id
 		result = Member.get_member(id)
-		family = Family(result[12], result[13], result[14])
+		family = Family(result[13], result[14])
 		member = Member(
 			result[0],
 			result[1],
@@ -331,7 +331,7 @@ class ModifyMemberWindow(tk.Toplevel):
 		quan el Radiobutton de familia esta en "si".
 		'''
 		result = Member.get_member(self.id)
-		family = Family(result[12], result[13], result[14])
+		family = Family(result[13], result[14])
 		self.combo_box_member_family.configure(state = "normal")
 		result = family.get_members(family.id)
 		for values in result:
@@ -419,7 +419,7 @@ class ModifyMemberWindow(tk.Toplevel):
 				)
 			else:
 				result = Member.get_member(self.id)
-				old_family = Family(result[12], result[13], result[14])
+				old_family = Family(result[13], result[14])
 				category = Category(
 					result[15], result[16], result[17], result[18]
 				)
@@ -467,7 +467,7 @@ class ModifyMemberWindow(tk.Toplevel):
 					# Si estava sol i entra en familia.
 					if len(old_family.members_list) == 1:
 						result = Family.get_family(self.final_family_id)
-						new_family = Family(result[0], result[1], result[2])
+						new_family = Family(result[0], result[1])
 						member.modify_member(
 							self.id,
 							member.name,
@@ -507,13 +507,12 @@ class ModifyMemberWindow(tk.Toplevel):
 						new_family.calculate_discount(new_family.members_list)
 						new_family.modify_family(
 							new_family.id,
-							new_family.discount,
-							new_family.is_direct_debited
+							new_family.discount
 						)
 					# Si estava en familia i canvia de familia.
 					else:
 						result = Family.get_family(self.final_family_id)
-						new_family = Family(result[0], result[1], result[2])
+						new_family = Family(result[0], result[1])
 						member.modify_member(
 							self.id,
 							member.name,
@@ -553,8 +552,7 @@ class ModifyMemberWindow(tk.Toplevel):
 						old_family.calculate_discount(old_family.members_list)
 						old_family.modify_family(
 							old_family.id,
-							old_family.discount,
-							old_family.is_direct_debited
+							old_family.discount
 						)
 						# Actualitzem familia nova
 						result = new_family.get_members(new_family.id)
@@ -581,14 +579,13 @@ class ModifyMemberWindow(tk.Toplevel):
 						new_family.calculate_discount(new_family.members_list)
 						new_family.modify_family(
 							new_family.id,
-							new_family.discount,
-							new_family.is_direct_debited
+							new_family.discount
 						)
 				# Si estava en familia i passa a estar sol	
 				elif len(old_family.members_list)>1 and self.final_family_id==0:
 					Family.set_family(0, 0)
 					result = Family.get_family(0)
-					new_family = Family(result[0], result[1], result[2])
+					new_family = Family(result[0], result[1])
 					member.modify_member(
 						self.id,
 						member.name,
@@ -627,7 +624,7 @@ class ModifyMemberWindow(tk.Toplevel):
 						old_family.members_list.append(family_member)
 					old_family.calculate_discount(old_family.members_list)
 					old_family.modify_family(
-						old_family.id, old_family.discount, old_family.is_direct_debited
+						old_family.id, old_family.discount
 					)
 		falla = Falla()
 		falla.regenerateBalance()
