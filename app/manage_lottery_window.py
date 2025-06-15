@@ -337,7 +337,7 @@ class ManageLotteryWindow(tk.Toplevel):
 
 	def fill_name(self, id):
 		result = Member.get_member(id)
-		family = Family(result[12], result[13], result[14])
+		family = Family(result[13], result[14])
 		category = Category(result[15], result[16], result[17], result[18])
 		member = Member(
 			result[0],

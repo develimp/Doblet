@@ -91,7 +91,7 @@ class Falla():
 			result = db.select_members_by_category(args[1])
 		db.close_connection()
 		for values in result:
-			family = Family(values[12], values[13], values[14])
+			family = Family(values[13], values[14])
 			category = Category(values[15], values[16], values[17], values[18])
 			member = Member(
 				values[0],
@@ -159,7 +159,7 @@ class Falla():
 		result = db.select_families()
 		db.close_connection()
 		for values in result:
-			family = Family(values[0], values[1], values[2])
+			family = Family(values[0], values[1])
 			self.families_list.append(family)
 
 

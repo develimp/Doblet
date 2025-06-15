@@ -333,7 +333,7 @@ class InsertMemberWindow(tk.Toplevel):
 			else:
 				if self.family.get() == 1:
 					result = Family.get_family(self.final_family_id)
-					family = Family(result[0], result[1], result[2])
+					family = Family(result[0], result[1])
 					Member.set_member(self.name.get(),
 							self.surname.get(),
 							birthdate,
@@ -367,12 +367,12 @@ class InsertMemberWindow(tk.Toplevel):
 						family.members_list.append(family_member)
 					family.calculate_discount(family.members_list)
 					family.modify_family(
-						family.id, family.discount, family.is_direct_debited
+						family.id, family.discount
 					)
 				else:
 					Family.set_family(0, 0)
 					result = Family.get_family(0)
-					family = Family(result[0], result[1], result[2])
+					family = Family(result[0], result[1])
 					Member.set_member(self.name.get(),
 							self.surname.get(),
 							birthdate,
