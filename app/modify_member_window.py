@@ -583,7 +583,7 @@ class ModifyMemberWindow(tk.Toplevel):
 						)
 				# Si estava en familia i passa a estar sol	
 				elif len(old_family.members_list)>1 and self.final_family_id==0:
-					Family.set_family(0, 0)
+					Family.set_family(0)
 					result = Family.get_family(0)
 					new_family = Family(result[0], result[1])
 					member.modify_member(

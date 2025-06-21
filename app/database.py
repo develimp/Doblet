@@ -552,10 +552,9 @@ class Database:
 		discount : float
 			Descompte familiar.
 		'''
-		query = "INSERT INTO family (discount) \
-			VALUES (%s)"
+		query = "INSERT INTO family (discount) VALUES (%s)"
 		try:
-			self.mysqlCursor.execute(query, discount)
+			self.mysqlCursor.execute(query, (discount,))
 			self.mysqlConnection.commit()
 		except mysql.connector.Error:
 			messagebox.showerror(

@@ -370,7 +370,7 @@ class InsertMemberWindow(tk.Toplevel):
 						family.id, family.discount
 					)
 				else:
-					Family.set_family(0, 0)
+					Family.set_family(0)
 					result = Family.get_family(0)
 					family = Family(result[0], result[1])
 					Member.set_member(self.name.get(),
