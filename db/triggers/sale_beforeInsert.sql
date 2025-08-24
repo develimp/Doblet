@@ -1,8 +1,8 @@
 USE sp;
 
-CREATE DEFINER=`root`@`localhost` TRIGGER buy_beforeInsert
+CREATE DEFINER=CURRENT_USER TRIGGER sale_beforeInsert
 BEFORE INSERT
-ON buy FOR EACH ROW
+ON sale FOR EACH ROW
 BEGIN
 	SET NEW.fallaYearFk = (
   	SELECT code FROM sp.fallaYear ORDER BY code DESC LIMIT 1
