@@ -970,10 +970,10 @@ class Database:
 			Número de rebut.
 		'''
 		query = "INSERT INTO movement \
-			(transactionDate, amount, idType, idConcept, fallaYearFk, \
+			(amount, idType, idConcept, fallaYearFk, \
 				memberFk, description, receiptNumber) \
-					VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
-		data = transaction_date, amount, id_type, id_concept, \
+					VALUES (%s, %s, %s, %s, %s, %s, %s)"
+		data = amount, id_type, id_concept, \
 			falla_year, id_member, description, receipt_number
 		try:
 			self.mysqlCursor.execute(query, data)
